@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products — Northwind Cloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        Northwind Cloud
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+      </div>
+      <div class="nav-cta">
+        <button class="btn btn-secondary" type="button">Log in</button>
+        <button class="btn btn-primary" type="button">Get started</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="container">
+      <h1>Products</h1>
+      <p>A small product grid for testing add-to-cart clicks and heatmap density.</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="product-grid" id="product-grid">
+        <!-- product cards are rendered below -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        Northwind Cloud
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+      </div>
+      <div class="footer-note">Demo site &middot; tracker.js session data only &middot; not a real product</div>
+    </div>
+  </footer>
+
+  <script>
+    // Render product cards from data so the markup stays short and the
+    // "add to cart" buttons all share consistent click behavior.
+    var PRODUCTS = [
+      { name: 'Pulse Headphones', price: '$129.00', color: '#5b4cf0', icon: '🎧' },
+      { name: 'Aero Backpack', price: '$89.00', color: '#00b8a9', icon: '🎒' },
+      { name: 'Orbit Smartwatch', price: '$219.00', color: '#ff7a59', icon: '⌚' },
+      { name: 'Lumen Desk Lamp', price: '$54.00', color: '#f6b93b', icon: '💡' },
+      { name: 'Drift Mechanical Keyboard', price: '$149.00', color: '#5b4cf0', icon: '⌨️' },
+      { name: 'Nimbus Travel Mug', price: '$24.00', color: '#00b8a9', icon: '☕' },
+      { name: 'Vector Sunglasses', price: '$74.00', color: '#ff7a59', icon: '🕶️' },
+      { name: 'Halo Ring Light', price: '$39.00', color: '#f6b93b', icon: '⭕' }
+    ];
+
+    var grid = document.getElementById('product-grid');
+
+    PRODUCTS.forEach(function (product) {
+      var card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML =
+        '<div class="product-thumb" style="background:' + product.color + '">' + product.icon + '</div>' +
+        '<div class="product-body">' +
+          '<div class="product-title">' + product.name + '</div>' +
+          '<div class="product-price">' + product.price + '</div>' +
+          '<button class="btn btn-primary btn-block" type="button">Add to cart</button>' +
+        '</div>';
+      grid.appendChild(card);
+    });
+
+    // Light feedback so "Add to cart" feels real — purely cosmetic, the
+    // click itself is what the tracker records.
+    grid.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      var original = btn.textContent;
+      btn.textContent = 'Added ✓';
+      setTimeout(function () {
+        btn.textContent = original;
+      }, 1200);
+    });
+  </script>
+
+  <script type="module" src="./tracker.js" data-api-url="http://localhost:5000/api/events"></script>
+</body>
+</html>

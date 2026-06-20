@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Northwind Cloud — Demo Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"></span>
+        Northwind Cloud
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="nav-cta">
+        <button class="btn btn-secondary" type="button">Log in</button>
+        <button class="btn btn-primary" type="button">Get started</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">Demo site for tracker.js</span>
+      <h1>Every click on this page is being recorded.</h1>
+      <p>This is a sample marketing site wired up with the analytics tracking script. Click around, browse the products page, and then check the dashboard to see your session show up.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" type="button">Start free trial</button>
+        <button class="btn btn-secondary" type="button">Watch demo</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2>Built for teams who ship fast</h2>
+        <p>A few sample feature cards to generate realistic click clusters for the heatmap.</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Real-time sync</h3>
+          <p>Changes propagate to every connected client in milliseconds, no manual refresh required.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Enterprise security</h3>
+          <p>SOC 2 Type II, SSO, and granular role-based access control out of the box.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Built-in analytics</h3>
+          <p>Track usage, sessions, and engagement without bolting on a third-party tool.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧩</div>
+          <h3>Flexible integrations</h3>
+          <p>Connect the tools your team already uses with a growing library of integrations.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🚀</div>
+          <h3>Instant deploys</h3>
+          <p>Ship changes to production in seconds with zero-downtime rolling deploys.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h3>24/7 support</h3>
+          <p>Talk to a real engineer any time, day or night, through chat or email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing" style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-header">
+        <h2>Simple, transparent pricing</h2>
+        <p>Pick a plan to generate a few more clicks before heading to the products page.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-secondary" type="button">Compare plans</button>
+        <button class="btn btn-primary" type="button">View pricing</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        Northwind Cloud
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div class="footer-note">Demo site &middot; tracker.js session data only &middot; not a real product</div>
+    </div>
+  </footer>
+
+  <script type="module" src="./tracker.js" data-api-url="http://localhost:5000/api/events"></script>
+</body>
+</html>
